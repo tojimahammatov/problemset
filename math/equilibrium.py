@@ -1,7 +1,7 @@
 '''
     Problem:    Find an equilibrium index of a given list
     
-    Note: an equilibrium index is an index which divides list into two halves such that those sub-lists' sums are equal.
+    Note: an equilibrium index is an index which divides list into two parts such that those sub-lists' sums are equal.
             the element at the equilibrium index itself is not calculated.
             0 and (n-1) can also be equilibrium indexes. ( for 0: sum of sub-list on the left is 0, the same for (n-1) )
     if there is no any such index, return -1
