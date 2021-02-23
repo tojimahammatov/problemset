@@ -1,5 +1,6 @@
 '''
     given a list, need to find missing number between [0, len(list)]
+    Note: elements are unique, shuffled, betweem [0, len(list)]
 '''
 
 def missingNumber(nums):
