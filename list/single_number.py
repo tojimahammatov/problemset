@@ -30,6 +30,6 @@ def single_number_v3(nums):
         bitwise trick
     '''
     number = 0
-    for num in nums:
-        number ^= num
+    for i in range(len(nums)):      # faster than:  ```for num in nums:```
+        number ^= nums[i]
     return number
