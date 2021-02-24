@@ -16,6 +16,20 @@ def single_number_v1(nums):
             return num
     return -1
 
+
 def single_number_v2(nums):
     # math trick
     return 2*(sum(set(nums))) - sum(nums)
+
+
+def single_number_v3(nums):
+    '''
+        so far the best option,
+            - O(n) time complexity,
+            - O(1) space complexity,
+        bitwise trick
+    '''
+    number = 0
+    for num in nums:
+        number ^= num
+    return number
