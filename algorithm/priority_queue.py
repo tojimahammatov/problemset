@@ -28,9 +28,17 @@ class MinHeap:
         rightchild_index = 2 * index + 2
         smallest_index = index
         if leftchild_index < self.size and self.elements[index].priority >= self.elements[leftchild_index].priority:
-            smallest_index = leftchild_index
+            if self.elements[index].priority == self.elements[leftchild_index].priority:
+                if self.elements[index].order > self.elements[leftchild_index].order:
+                    smallest_index = leftchild_index
+            else:
+                smallest_index = leftchild_index
         if rightchild_index < self.size and self.elements[smallest_index].priority >= self.elements[rightchild_index].priority:
-            smallest_index = rightchild_index
+            if self.elements[smallest_index].priority == self.elements[rightchild_index].priority:
+                if self.elements[smallest_index].order > self.elements[rightchild_index].order:
+                    smallest_index = rightchild_index
+            else:
+                smallest_index = rightchild_index
         if index != smallest_index:
             self.elements[index], self.elements[smallest_index] = self.elements[smallest_index], self.elements[index]
             self.min_heapify_top2bottom(smallest_index)
