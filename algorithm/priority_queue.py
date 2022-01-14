@@ -43,3 +43,15 @@ class MinHeap:
 
     def is_empty(self):
         return len(self.elements) == 0
+
+
+class Job:
+    def __init__(self, priority, order, message) -> None:
+        self.priority = priority
+        self.order = order
+        self.message = message
+
+    def run(self):
+        print("Running task...")
+        print(self.message)
+        print("Task is finished...")
