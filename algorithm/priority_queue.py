@@ -53,6 +53,20 @@ class MinHeap:
         return len(self.elements) == 0
 
 
+# JobRunner class having a priority queue
+class JobRunner(MinHeap):
+    def __init__(self) -> None:
+        super().__init__()
+        self.pending_task = None
+
+    def prepare_pending_task(self):
+        self.pending_task = self.extractMin()   # change function name to extract_min()
+
+    def run_task(self):
+        self.pending_task.run()
+
+
+# Job class having a message, priority [lower value is assumed a higher priority], and order
 class Job:
     def __init__(self, priority, order, message) -> None:
         self.priority = priority
