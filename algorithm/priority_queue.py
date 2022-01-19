@@ -68,12 +68,34 @@ class JobRunner(MinHeap):
 
 # Job class having a message, priority [lower value is assumed a higher priority], and order
 class Job:
-    def __init__(self, priority, order, message) -> None:
+    def __init__(self, priority, order) -> None:
         self.priority = priority
         self.order = order
-        self.message = message
+        self.message = "A task with priority=" + str(self.priority) + ", order=" + str(self.order)
 
     def run(self):
         print("Running task...")
         print(self.message)
         print("Task is finished...")
+
+
+import sys 
+def main():
+    jobRunner = JobRunner()
+    n = int(sys.argv[1]) if len(sys.argv) > 1 else 10
+    for i in range(n, 0, -1):
+        job = Job(priority=i, order=(n-i+1))
+        jobRunner.add(job)
+        print([(x.priority, x.order) for x in jobRunner.elements])
+
+    print("JobRunner is filled up with jobs, now time to dequeue and run tasks w.r.t priorities")
+
+    while not jobRunner.is_empty():
+        pending_task = jobRunner.extractMin()
+        pending_task.run()
+        print([(x.priority, x.order) for x in jobRunner.elements])
+
+    print("Done")
+
+if __name__ == "__main__":
+    main()
