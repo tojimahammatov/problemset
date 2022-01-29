@@ -13,7 +13,7 @@ class MinHeap:
         self.min_heapify_bottom2top(self.size - 1)
 
     def extractMin(self):
-        if len(self.elements) == 0:
+        if self.is_empty():
             raise Exception("heap is empty")
         min_element = self.elements[0]
         last_element = self.elements.pop()
