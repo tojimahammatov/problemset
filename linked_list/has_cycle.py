@@ -9,7 +9,7 @@
 #         self.next = None
 
 
-def hasCycle(head) -> bool:
+def has_cycle(head) -> bool:
     if head is None or head.next is None:
         return False
     head.accessed_before = True
