@@ -13,7 +13,11 @@ def is_valid(s) -> bool:
         if bracket in ['{', '(', '[']:      # if bracket is opening
             stack.append(bracket)           # keep pushing into the stack
         else:
+            if len(stack) <= 0:
+                return False
             opening = stack.pop()           # otherwise, pop and verify it makes valid with closing one
             if opening+bracket not in ['()', '{}', '[]']:
                 return False
+    if len(stack) > 0:
+        return False
     return True     # if we are alive till the end, seems exp. is valid
