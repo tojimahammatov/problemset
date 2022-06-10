@@ -2,7 +2,7 @@
 Category : Hard (in leetcode)
 '''
 
-def findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:
+def findMedianSortedArrays(nums1, nums2) -> float:
     m, n = len(nums1), len(nums2)
     res = []
     p, q = 0, 0
