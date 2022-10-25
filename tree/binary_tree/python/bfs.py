@@ -34,3 +34,25 @@ class Solution:
                 res.append([])
             res[depth-1].append(node.val)
         return res
+
+
+# using a deque of collections library for building a queue
+
+from collections import deque
+
+class Solution2:
+    def levelOrder(self, root):
+        if not root:
+            return root
+        res = []
+        queue = deque([(root, 1)])          # only change to make a queue
+        while queue:
+            node, depth = queue.popleft()   # O(1) time
+            if node.left:
+                queue.append((node.left, depth+1))
+            if node.right:
+                queue.append((node.right, depth+1))
+            if len(res) < depth:
+                res.append([])
+            res[depth-1].append(node.val)
+        return res
